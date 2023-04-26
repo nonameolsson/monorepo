@@ -1,13 +1,22 @@
 import { Card, Header } from '@tma/andreas-ui';
-import { Post } from '@tma/schemas';
+import { Post, Posts, PostsSchema } from '@tma/schemas';
 import { useFetch } from '@tma/utils';
 
 import styles from './app.module.css';
 
-const url = `http://localhost:3333/api/posts`;
+function usePosts() {
+  const url = `http://localhost:3333/api/posts`;
+  const { data, error } = useFetch<Post[]>(url);
+  let posts: Posts = [];
+  if (data) {
+    posts = PostsSchema.parse(data);
+  }
+
+  return { data: posts, error };
+}
 
 export function App() {
-  const { data, error } = useFetch<Post[]>(url);
+  const { data, error } = usePosts();
 
   return (
     <div className={styles['app']}>
