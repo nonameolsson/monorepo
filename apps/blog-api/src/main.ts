@@ -2,7 +2,7 @@
  * This is not a production server yet!
  * This is only a minimal backend to get started.
  */
-import { PostSchema, PostsSchema } from '@tma/schemas';
+import { PostSchema, PostsSchema } from '@nonameolsson/schemas';
 import cors from 'cors';
 import express from 'express';
 import * as path from 'path';
