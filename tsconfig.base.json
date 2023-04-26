@@ -17,9 +17,6 @@
     "paths": {
       "@nonameolsson/andreas-ui": ["packages/andreas-ui/src/index.ts"],
       "@nonameolsson/schemas": ["packages/schemas/src/index.ts"],
-      "@nonameolsson/schemas/schemas": [
-        "packages/schemas/schemas/src/index.ts"
-      ],
       "@nonameolsson/text-fns": ["packages/text-fns/src/index.ts"],
       "@nonameolsson/utils": ["packages/utils/src/index.ts"]
     }

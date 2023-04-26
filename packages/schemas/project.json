@@ -4,11 +4,11 @@
   "sourceRoot": "packages/schemas/src",
   "projectType": "library",
   "targets": {
-    "build": {
-      "executor": "@nrwl/vite:build",
-      "outputs": ["{options.outputPath}"],
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "outputPath": "dist/packages/schemas"
+        "lintFilePatterns": ["packages/schemas/**/*.ts"]
       }
     },
     "test": {
@@ -18,14 +18,7 @@
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/packages/schemas"
       }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["packages/schemas/**/*.ts"]
-      }
     }
   },
-  "tags": ["type:schema"]
+  "tags": []
 }
