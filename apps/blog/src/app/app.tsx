@@ -1,30 +1,32 @@
-import { Button, Card, Header, TextInput } from '@tma/andreas-ui';
-import { useState } from 'react';
+import { Card, Header } from '@tma/andreas-ui';
+import { useFetch } from '@tma/utils';
+
 import styles from './app.module.css';
 
+const url = `http://localhost:3333/api/posts`;
+
+interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 export function App() {
-  const [text, setText] = useState('');
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    alert(text);
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value);
-  };
+  const { data, error } = useFetch<Post[]>(url);
 
   return (
     <div className={styles['app']}>
       <div className={styles['wrapper']}>
         <Header title="Blog" description="This is a blog app" />
-        <TextInput placeholder="Product" onChange={handleChange} value={text} />
-        <Button onClick={handleClick}>Search</Button>
       </div>
       <ul className={styles['posts']}>
-        <Card title="Post 1" description="Lorem ipsum" />
-        <Card title="Post 2" description="Lorem ipsum" />
+        {data &&
+          data.map((post) => (
+            <Card key={post.id} title={post.title} description={post.body} />
+          ))}
       </ul>
+      {error && <div>{error.message}</div>}
     </div>
   );
 }

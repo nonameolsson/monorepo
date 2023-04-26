@@ -4,6 +4,10 @@
     "sourceMap": false,
     "outDir": "../../dist/out-tsc",
     "allowJs": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
     "types": ["cypress", "node"]
   },
   "include": ["src/**/*.ts", "src/**/*.js", "cypress.config.ts"]

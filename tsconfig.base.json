@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@tma/andreas-ui": ["packages/andreas-ui/src/index.ts"]
+      "@tma/andreas-ui": ["packages/andreas-ui/src/index.ts"],
+      "@tma/utils": ["packages/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

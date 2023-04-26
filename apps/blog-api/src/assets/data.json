@@ -1,0 +1,20 @@
+[
+  {
+    "title": "I like pizza",
+    "body": "Read this article to understand why",
+    "userId": 1,
+    "id": 1
+  },
+  {
+    "title": "Horses are the new cats",
+    "body": "Just because they are",
+    "userId": 2,
+    "id": 2
+  },
+  {
+    "title": "Winter is coming",
+    "body": "It is very close",
+    "userId": 1,
+    "id": 3
+  }
+]
