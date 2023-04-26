@@ -1,15 +1,18 @@
-import { Card, Header } from '@tma/andreas-ui';
-import { Post, Posts, PostsSchema } from '@tma/schemas';
-import { useFetch } from '@tma/utils';
+import { Card, Header } from '@nonameolsson/andreas-ui';
+import { Post, Posts, PostsSchema } from '@nonameolsson/schemas';
+import { useFetch } from '@nonameolsson/utils';
 
+import { Uppercase } from '@nonameolsson/text-fns';
 import styles from './app.module.css';
 
 function usePosts() {
   const url = `http://localhost:3333/api/posts`;
   const { data, error } = useFetch<Post[]>(url);
+
   let posts: Posts = [];
   if (data) {
     posts = PostsSchema.parse(data);
+    console.log('🚀');
   }
 
   return { data: posts, error };
@@ -23,6 +26,7 @@ export function App() {
       <div className={styles['wrapper']}>
         <Header title="Blog" description="This is a blog app" />
       </div>
+      <h4>{Uppercase('posts')}</h4>
       <ul className={styles['posts']}>
         {data &&
           data.map((post) => (

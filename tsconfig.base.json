@@ -15,11 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@tma/andreas-ui": ["packages/andreas-ui/src/index.ts"],
-      "@tma/schemas": ["packages/schemas/src/index.ts"],
-      "@tma/schemas/schemas": ["packages/schemas/schemas/src/index.ts"],
-      "@tma/text-fns": ["packages/text-fns/src/index.ts"],
-      "@tma/utils": ["packages/utils/src/index.ts"]
+      "@nonameolsson/andreas-ui": ["packages/andreas-ui/src/index.ts"],
+      "@nonameolsson/schemas": ["packages/schemas/src/index.ts"],
+      "@nonameolsson/schemas/schemas": [
+        "packages/schemas/schemas/src/index.ts"
+      ],
+      "@nonameolsson/text-fns": ["packages/text-fns/src/index.ts"],
+      "@nonameolsson/utils": ["packages/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

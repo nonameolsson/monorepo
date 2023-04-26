@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Button, Card, Header, TextInput } from '@tma/andreas-ui';
-import { Post } from '@tma/schemas';
-import { useFetch } from '@tma/utils';
+import { Button, Card, Header, TextInput } from '@nonameolsson/andreas-ui';
+import { Post } from '@nonameolsson/schemas';
+import { useFetch } from '@nonameolsson/utils';
 
 import styles from './app.module.css';
 
