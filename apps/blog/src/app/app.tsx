@@ -1,16 +1,10 @@
 import { Card, Header } from '@tma/andreas-ui';
+import { Post } from '@tma/schemas';
 import { useFetch } from '@tma/utils';
 
 import styles from './app.module.css';
 
 const url = `http://localhost:3333/api/posts`;
-
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
 
 export function App() {
   const { data, error } = useFetch<Post[]>(url);

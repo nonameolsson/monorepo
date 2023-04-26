@@ -8,7 +8,7 @@ export interface HeaderProps {
 
 export function Header(props: HeaderProps) {
   return (
-    <div className={styles['container']}>
+    <div className={styles['header']}>
       <h1>{props.title}</h1>
       {props.description && <h2>{props.description}</h2>}
     </div>

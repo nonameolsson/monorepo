@@ -2,6 +2,7 @@
  * This is not a production server yet!
  * This is only a minimal backend to get started.
  */
+import { PostSchema, PostsSchema } from '@tma/schemas';
 import cors from 'cors';
 import express from 'express';
 import * as path from 'path';
@@ -26,12 +27,13 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/api/posts/latest', (req, res) => {
-  const latestPost = data[0];
+  const latestPost = PostSchema.parse(data[0]);
   res.send(latestPost);
 });
 
 app.get('/api/posts', (req, res) => {
-  res.send(data);
+  const posts = PostsSchema.parse(data);
+  res.send(posts);
 });
 
 const port = process.env.PORT || 3333;

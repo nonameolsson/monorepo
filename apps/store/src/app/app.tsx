@@ -1,23 +1,16 @@
 import { useState } from 'react';
 
 import { Button, Card, Header, TextInput } from '@tma/andreas-ui';
+import { Post } from '@tma/schemas';
 import { useFetch } from '@tma/utils';
 
 import styles from './app.module.css';
 
 const url = `http://localhost:3333/api/posts/latest`;
 
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
 export function App() {
-  const { data } = useFetch<Post>(url);
+  const { data, error } = useFetch<Post>(url);
   const [text, setText] = useState('');
-  console.log(data);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     alert(text);
@@ -40,6 +33,7 @@ export function App() {
       <div className={styles['wrapper']}>
         <h3>Latest post</h3>
         {data && <Card title={data.title} description={data.body} />}
+        {error && <p>Error fetching posts</p>}
       </div>
     </div>
   );
