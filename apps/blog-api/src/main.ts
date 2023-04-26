@@ -29,7 +29,7 @@ app.get('/api', (req, res) => {
 app.get('/api/posts/latest', (req, res) => {
   const parsed = PostSchema.safeParse(data[0]);
   if (parsed.success) {
-    res.send(parsed);
+    res.send(parsed.data);
     return;
   }
 
@@ -40,7 +40,7 @@ app.get('/api/posts/latest', (req, res) => {
 app.get('/api/posts', (req, res) => {
   const parsed = PostsSchema.safeParse(data);
   if (parsed.success) {
-    res.send(parsed);
+    res.send(parsed.data);
     return;
   }
 
