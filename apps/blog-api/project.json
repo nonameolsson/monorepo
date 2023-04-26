@@ -60,5 +60,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:blog-api", "type:backend"]
 }

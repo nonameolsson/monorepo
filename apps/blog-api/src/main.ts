@@ -27,13 +27,25 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/api/posts/latest', (req, res) => {
-  const latestPost = PostSchema.parse(data[0]);
-  res.send(latestPost);
+  const parsed = PostSchema.safeParse(data[0]);
+  if (parsed.success) {
+    res.send(parsed);
+    return;
+  }
+
+  console.error(parsed.error);
+  return [];
 });
 
 app.get('/api/posts', (req, res) => {
-  const posts = PostsSchema.parse(data);
-  res.send(posts);
+  const parsed = PostsSchema.safeParse(data);
+  if (parsed.success) {
+    res.send(parsed);
+    return;
+  }
+
+  console.error(parsed.error);
+  return [];
 });
 
 const port = process.env.PORT || 3333;
