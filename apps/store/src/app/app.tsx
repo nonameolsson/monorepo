@@ -11,14 +11,15 @@ const url = `http://localhost:3333/api/posts/latest`;
 export function App() {
   const { data, error } = useFetch<Post>(url);
   const [text, setText] = useState('');
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+
+  function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     alert(text);
-  };
+  }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setText(event.target.value);
-  };
+  }
 
   return (
     <div className={styles['app']}>
