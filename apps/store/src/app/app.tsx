@@ -13,7 +13,6 @@ const total = `http://localhost:3333/api/posts/total`;
 export function App() {
   const { data: postData, error: postError } = useFetch<Post>(url);
   const { data: totalData } = useFetch<string>(total);
-  console.log('totalData', typeof totalData);
   const [text, setText] = useState('');
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
