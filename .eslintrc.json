@@ -30,6 +30,11 @@
                 ]
               },
               {
+                "sourceTag": "type:schema",
+                "notDependOnLibsWithTags": ["*"],
+                "allowedExternalImports": ["zod"]
+              },
+              {
                 "sourceTag": "type:backend",
                 "onlyDependOnLibsWithTags": ["type:util", "type:schema"]
               }
