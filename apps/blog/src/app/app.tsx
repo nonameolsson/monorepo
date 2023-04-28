@@ -5,6 +5,7 @@ import { useFetch } from '@nonameolsson/utils';
 
 import styles from './app.module.css';
 
+// TODO: Move this to a hook library
 function usePosts() {
   const url = `http://localhost:3333/api/posts`;
   const { data, error } = useFetch<Post[]>(url);
