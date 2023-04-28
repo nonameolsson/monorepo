@@ -25,3 +25,8 @@
   cursor: pointer;
   appearance: none;
 }
+
+h1,
+h2 {
+  margin: 0;
+}

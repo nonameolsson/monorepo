@@ -5,5 +5,5 @@
  * @returns string Number of elements in the array
  */
 export function count(arr: unknown[]): string {
-  return arr.length.toExponential().toString();
+  return arr.length.toString();
 }
