@@ -3,5 +3,5 @@ export function Capitalize(str: string): string {
 }
 
 export function Uppercase(str: string): string {
-  return str.toUpperCase();
+  return str;
 }

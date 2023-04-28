@@ -8,9 +8,12 @@ import styles from './app.module.css';
 
 // TODO: Change to `useFetch()`
 const url = `http://localhost:3333/api/posts/latest`;
+const total = `http://localhost:3333/api/posts/total`;
 
 export function App() {
-  const { data, error } = useFetch<Post>(url);
+  const { data: postData, error: postError } = useFetch<Post>(url);
+  const { data: totalData } = useFetch<string>(total);
+  console.log('totalData', typeof totalData);
   const [text, setText] = useState('');
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
@@ -29,13 +32,22 @@ export function App() {
           title="Store"
           description="This is a store app, buy whatever you want!"
         />
-        <TextInput placeholder="Product" onChange={handleChange} value={text} />
-        <Button onClick={handleClick}>Buy!</Button>
+        <div>
+          <p>We have {totalData} products</p>
+          <TextInput
+            placeholder="Product"
+            onChange={handleChange}
+            value={text}
+          />
+          <Button onClick={handleClick}>Buy!</Button>
+        </div>
       </div>
       <div className={styles['wrapper']}>
         <h3>Latest post</h3>
-        {data && <Card title={data.title} description={data.body} />}
-        {error && <p>Error fetching posts</p>}
+        {postData && (
+          <Card title={postData.title} description={postData.body} />
+        )}
+        {postError && <p>Error fetching posts</p>}
       </div>
     </div>
   );

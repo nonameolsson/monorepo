@@ -3,6 +3,7 @@
  * This is only a minimal backend to get started.
  */
 import { PostSchema, PostsSchema } from '@nonameolsson/schemas';
+import { count } from '@nonameolsson/utils';
 import cors from 'cors';
 import express from 'express';
 import * as path from 'path';
@@ -41,6 +42,18 @@ app.get('/api/posts', (req, res) => {
   const parsed = PostsSchema.safeParse(data);
   if (parsed.success) {
     res.send(parsed.data);
+    return;
+  }
+
+  console.error(parsed.error);
+  return [];
+});
+
+app.get('/api/posts/total', (req, res) => {
+  const parsed = PostsSchema.safeParse(data);
+  if (parsed.success) {
+    const numberOfPosts = count(parsed.data);
+    res.send(numberOfPosts);
     return;
   }
 
