@@ -24,7 +24,7 @@ export function App() {
   return (
     <div className={styles['app']}>
       <div className={styles['wrapper']}>
-        <Header title="Blog" description="This is an aswemoss fssdblog app" />
+        <Header title="Blog" description="This is an aswemosss fssdblog app" />
       </div>
       <h4>{Uppercase('posts')}</h4>
       {error ? (
