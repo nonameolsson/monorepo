@@ -6,6 +6,7 @@ import { useFetch } from '@nonameolsson/utils';
 
 import styles from './app.module.css';
 
+// TODO: Change to `useFetch()`
 const url = `http://localhost:3333/api/posts/latest`;
 
 export function App() {
